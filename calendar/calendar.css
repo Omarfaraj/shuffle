@@ -1,0 +1,22 @@
+/* Basic calendar styling */
+.calendar table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .calendar th, .calendar td {
+    border: 1px solid black;
+    text-align: center;
+    padding: 10px;
+  }
+  
+  /* Additional styling */
+  .task-complete {
+    text-decoration: line-through;
+    color: gray;
+  }
+  
+  .task-incomplete {
+    color: red;
+  }
+  

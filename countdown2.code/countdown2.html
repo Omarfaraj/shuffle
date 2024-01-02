@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+ <head>
+    <link rel="stylesheet" href="countdown2.css">
+    <body>
+        <div id="countdown">
+            <span id="digit1">5</span>
+            <span id="digit2">4</span>
+            <span id="digit3">3</span>
+            <span id="digit4">2</span>
+            <span id="digit5">1</span>
+          </div> 
+          <script>
+            const countdown = document.getElementById("countdown");
+            const digits = countdown.querySelectorAll('span');
+            let count = 5; // Initial countdown value
+            const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+
+            function countdownTimer() {
+            if (count > 0) {
+            digits[count - 1].classList.add('fade-out');
+            setTimeout(() => {
+            digits[count - 1].textContent = count - 1;
+            digits[count - 1].classList.remove('fade-out');
+            count--;
+            countdownTimer();
+        }, 1000);
+    } else {
+    document.body.style.backgroundColor = '#7FFF00'; //Countdown finished actions
+  }
+}
+
+countdownTimer();
+
+          </script>         
+    </body>
+ </head>

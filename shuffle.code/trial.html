@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+let numbers = [1, 2, 3];
+
+function shuffle() {
+ let currentIndex = numbers.length, temporaryValue, randomIndex;
+
+ // While there remain elements to shuffle...
+ while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = numbers[currentIndex];
+    numbers[currentIndex] = numbers[randomIndex];
+    numbers[randomIndex] = temporaryValue;
+ }
+
+ return numbers;
+}
+
+function showNumbers() {
+ let output = shuffle().join(', ');
+ document.getElementById('output').innerHTML = output;
+}
+</script>
+</head>
+<body>
+
+<button onclick="showNumbers()">Shuffle</button>
+<p id="output"></p>
+
+</body>
+</html>

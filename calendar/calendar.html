@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>January Calendar/task Management</title>
+<link rel="stylesheet" href="calendar.css">
+</head>
+<body>
+<div class="calendar">
+  <h1>January</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Su</th>
+        <th>Mo</th>
+        <th>Tu</th>
+        <th>We</th>
+        <th>Th</th>
+        <th>Fr</th>
+        <th>Sa</th>
+    </thead>
+    <tbody id="calendar-body"></tbody>
+  </table>
+</div>
+<script>
+    // Generate the calendar table
+//const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    
+function generateCalendar() {
+  // Get current year and month
+  const currentYear = 2024;
+  const currentMonth = 0; // 1=0
+
+  // first day of the month
+  const firstDay = new Date(currentYear, currentMonth).getDay();
+
+  // number of days in the month
+  const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+
+  // table body
+  const tbody = document.getElementById("calendar-body");
+
+  // table rows and cells with dates and tasks
+  let day = 1;
+  let row = tbody.insertRow();
+  for (let i = 1; i < firstDay; i++) {
+    row.insertCell(); // (Add) empty cells for leading days
+  }
+  for (let i = 0; i <= daysInMonth; i++) {
+    const cell = row.insertCell();
+    cell.textContent = i;
+    // Add task input or display here
+    if (day % 7 === 0) {
+      //var row = document.createElement('tr');
+      row = tbody.insertRow();
+    }
+    day++;
+  }
+}
+
+// Call the function to generate the calendar
+generateCalendar();
+
+</script>
+</body>
+</html>
